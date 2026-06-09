@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: memo-app-api
+    runtime: node
+    buildCommand: npm install && npx prisma generate
+    startCommand: npx prisma migrate deploy && node server/index.js
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: NODE_VERSION
+        value: "20"

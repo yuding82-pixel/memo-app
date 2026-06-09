@@ -7,7 +7,23 @@ import memoRoutes from './routes/memos.js'
 const app = express()
 const PORT = process.env.PORT || 3001
 
-app.use(cors())
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:5177',
+  'https://memo-app-cyan.vercel.app',
+]
+
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true)
+      } else {
+        callback(null, true)
+      }
+    },
+  })
+)
 app.use(express.json())
 
 app.get('/api/health', (_req, res) => {

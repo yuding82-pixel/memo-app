@@ -1,4 +1,5 @@
 const TOKEN_KEY = 'memo_app_token'
+const API_BASE = import.meta.env.VITE_API_URL || ''
 
 export function getToken() {
   return localStorage.getItem(TOKEN_KEY)
@@ -23,7 +24,7 @@ async function request(path, options = {}) {
     headers.Authorization = `Bearer ${token}`
   }
 
-  const response = await fetch(`/api${path}`, {
+  const response = await fetch(`${API_BASE}/api${path}`, {
     ...options,
     headers,
   })
