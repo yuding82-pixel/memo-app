@@ -13,7 +13,7 @@
     "db:migrate-data": "node scripts/migrate-sqlite-to-supabase.js",
     "db:setup-supabase": "node scripts/setup-supabase.js",
     "db:test-connection": "node scripts/test-supabase-connection.js",
-    "server": "node scripts/with-database-url.js \"npx prisma generate && npx prisma migrate deploy\" && node scripts/with-database-url.js node server/index.js",
+    "server": "node scripts/with-database-url.js \"npx prisma generate && node scripts/prisma-deploy-safe.js\" && node scripts/with-database-url.js node server/index.js",
     "client": "node ./node_modules/vite/bin/vite.js --open",
     "build": "node ./node_modules/vite/bin/vite.js build",
     "lint": "eslint .",

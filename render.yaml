@@ -3,7 +3,7 @@ services:
     name: memo-app-api
     runtime: node
     buildCommand: npm install && node scripts/with-database-url.js npx prisma generate
-    startCommand: node scripts/with-database-url.js npx prisma migrate deploy && node scripts/with-database-url.js node server/index.js
+    startCommand: node scripts/with-database-url.js node scripts/prisma-deploy-safe.js && node scripts/with-database-url.js node server/index.js
     envVars:
       - key: DATABASE_URL
         sync: false
