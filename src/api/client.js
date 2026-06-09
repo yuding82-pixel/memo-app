@@ -1,5 +1,7 @@
 const TOKEN_KEY = 'memo_app_token'
-const API_BASE = import.meta.env.VITE_API_URL || ''
+const API_BASE =
+  import.meta.env.VITE_API_URL ||
+  (import.meta.env.PROD ? 'https://memo-app-x08y.onrender.com' : '')
 
 export function getToken() {
   return localStorage.getItem(TOKEN_KEY)
@@ -36,7 +38,7 @@ async function request(path, options = {}) {
   const data = await response.json().catch(() => ({}))
 
   if (!response.ok) {
-    throw new Error(data.error || '요청에 실패했습니다.')
+    throw new Error(data.error || `요청에 실패했습니다. (${response.status})`)
   }
 
   return data
