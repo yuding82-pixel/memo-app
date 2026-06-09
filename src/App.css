@@ -1,0 +1,324 @@
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+  text-align: left;
+}
+
+.app-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.app-error {
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  background: color-mix(in oklch, var(--destructive) 10%, transparent);
+  color: var(--destructive);
+  font-size: 14px;
+}
+
+.loading-message {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--muted-foreground);
+}
+
+.auth-panel {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 20px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--card);
+  color: var(--card-foreground);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) * 1.5);
+  padding: 32px 28px;
+}
+
+.auth-card h1 {
+  font-size: 28px;
+  margin: 0 0 8px;
+  color: var(--foreground);
+}
+
+.auth-subtitle {
+  margin: 0 0 24px;
+  color: var(--muted-foreground);
+  font-size: 15px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.auth-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--foreground);
+}
+
+.auth-input {
+  padding: 10px 12px;
+  font-size: 15px;
+  font-family: var(--sans);
+  border: 1px solid var(--input);
+  border-radius: var(--radius);
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: var(--ring);
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.auth-error {
+  margin: 0;
+  font-size: 14px;
+  color: var(--destructive);
+}
+
+.auth-submit {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.auth-toggle {
+  width: 100%;
+  margin-top: 16px;
+  padding: 8px;
+  border: none;
+  background: none;
+  color: var(--muted-foreground);
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.auth-toggle:hover {
+  color: var(--foreground);
+}
+
+.app-header {
+  margin-bottom: 28px;
+}
+
+.app-header h1 {
+  font-size: 32px;
+  margin: 0 0 8px;
+  letter-spacing: -0.5px;
+  color: var(--foreground);
+}
+
+.app-subtitle {
+  color: var(--muted-foreground);
+  font-size: 15px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 180px;
+}
+
+.search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 14px;
+  font-size: 15px;
+  font-family: var(--sans);
+  border: 1px solid var(--input);
+  border-radius: var(--radius);
+  background: var(--background);
+  color: var(--foreground);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--ring);
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.memo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.empty-message {
+  text-align: center;
+  padding: 48px 20px;
+  color: var(--muted-foreground);
+  font-size: 15px;
+}
+
+.memo-card {
+  background: var(--card);
+  color: var(--card-foreground);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) * 1.5);
+  padding: 20px;
+  transition: box-shadow 0.2s;
+}
+
+.memo-card--editing {
+  border-color: var(--ring);
+  box-shadow: var(--shadow);
+}
+
+.memo-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 10px;
+  color: var(--card-foreground);
+  word-break: break-word;
+}
+
+.memo-content {
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 12px;
+  color: var(--muted-foreground);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.memo-date {
+  display: block;
+  font-size: 12px;
+  color: var(--muted-foreground);
+  margin-bottom: 14px;
+}
+
+.memo-title-input,
+.memo-content-input {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--sans);
+  font-size: 15px;
+  border: 1px solid var(--input);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  background: var(--background);
+  color: var(--foreground);
+  margin-bottom: 10px;
+  resize: vertical;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.memo-title-input {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.memo-title-input:focus,
+.memo-content-input:focus {
+  outline: none;
+  border-color: var(--ring);
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.memo-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: var(--sans);
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  border-color: var(--border);
+  flex-shrink: 0;
+}
+
+.btn-secondary:hover {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.btn-edit {
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  border-color: var(--border);
+}
+
+.btn-edit:hover {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.btn-save {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.btn-save:hover {
+  opacity: 0.9;
+}
+
+.btn-delete {
+  background: transparent;
+  color: var(--destructive);
+  border-color: color-mix(in oklch, var(--destructive) 40%, transparent);
+}
+
+.btn-delete:hover {
+  background: color-mix(in oklch, var(--destructive) 10%, transparent);
+}
+
+@media (max-width: 480px) {
+  .toolbar {
+    flex-direction: column;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+}

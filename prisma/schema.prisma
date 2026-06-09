@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int    @id @default(autoincrement())
+  username     String @unique
+  passwordHash String @map("password_hash")
+  createdAt    Int    @map("created_at")
+  memos        Memo[]
+
+  @@map("users")
+}
+
+model Memo {
+  id        String @id
+  userId    Int    @map("user_id")
+  title     String @default("")
+  content   String @default("")
+  updatedAt Int    @map("updated_at")
+  user      User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("memos")
+}
