@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   const id = randomUUID()
-  const now = Date.now()
+  const now = BigInt(Date.now())
 
   const memo = await prisma.memo.create({
     data: {
@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   const { title = '', content = '' } = req.body
-  const now = Date.now()
+  const now = BigInt(Date.now())
 
   const result = await prisma.memo.updateMany({
     where: { id: req.params.id, userId: req.user.id },

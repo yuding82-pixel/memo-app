@@ -3,6 +3,6 @@ export function toMemoDto(memo) {
     id: memo.id,
     title: memo.title,
     content: memo.content,
-    updatedAt: memo.updatedAt,
+    updatedAt: Number(memo.updatedAt),
   }
 }

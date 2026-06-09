@@ -27,7 +27,7 @@ router.post('/register', async (req, res) => {
       data: {
         username: trimmedUsername,
         passwordHash,
-        createdAt: Date.now(),
+        createdAt: BigInt(Date.now()),
       },
       select: { id: true, username: true },
     })

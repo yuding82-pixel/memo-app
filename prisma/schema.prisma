@@ -3,15 +3,16 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model User {
   id           Int    @id @default(autoincrement())
   username     String @unique
   passwordHash String @map("password_hash")
-  createdAt    Int    @map("created_at")
+  createdAt    BigInt @map("created_at")
   memos        Memo[]
 
   @@map("users")
@@ -22,7 +23,7 @@ model Memo {
   userId    Int    @map("user_id")
   title     String @default("")
   content   String @default("")
-  updatedAt Int    @map("updated_at")
+  updatedAt BigInt @map("updated_at")
   user      User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("memos")
