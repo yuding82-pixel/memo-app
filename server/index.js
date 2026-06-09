@@ -1,3 +1,7 @@
+import { applyDatabaseUrl } from '../scripts/sanitize-database-url.js'
+
+applyDatabaseUrl()
+
 import express from 'express'
 import cors from 'cors'
 import prisma from './db.js'
